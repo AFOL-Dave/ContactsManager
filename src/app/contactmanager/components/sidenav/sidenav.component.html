@@ -1,4 +1,6 @@
-<mat-sidenav-container class="app-sidenav-container">
+<mat-sidenav-container class="app-sidenav-container"
+    [class.dark-theme] = "isDarkTheme"
+    [dir] = "dir">
     <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"
                           [opened]="!isSmallScreen"
                           [mode]="isSmallScreen ? 'over' : 'side'">
@@ -14,7 +16,9 @@
         </mat-nav-list>
     </mat-sidenav>
     <div class="app-sidenav-content">
-        <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+        <app-toolbar (toggleSidenav)="sidenav.toggle()"
+                     (toggleTheme)="toggleTheme()"
+                     (toggleDirection)="toggleDirection()"></app-toolbar>
         <div class="wrapper">
             <router-outlet></router-outlet>
         </div>
