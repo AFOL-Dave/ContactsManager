@@ -9,11 +9,13 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '',
     component: ContactmanagerAppComponent,
     children: [
+      { path: ':id', component: MainContentComponent},
       { path: '', component: MainContentComponent}
     ] },
   { path: '**', redirectTo: ''}
@@ -28,6 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
